@@ -1,0 +1,267 @@
+<!DOCTYPE >
+<html >
+<head>
+    <title>Ngôi nhà của tôi</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #fff;
+    color: #333;
+    
+}
+
+h1 {
+    background-color: #333;
+    color: #333;
+    border-bottom: 2px solid #333;
+    text-align: center;
+    animation: colorChange 3s linear infinite;
+    border: 2px solid #333;
+    border-radius: 10px;
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+    width: 40%;
+    margin: 0 10px;
+}
+h1::before{
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #333;
+            border-radius: 12px;
+            z-index: -1;
+        }
+@keyframes colorChange {
+    0% { color: #FFA500; }
+    50% { color: #333; }
+    100% { color: #FFA500; }
+}
+
+.real-time-info {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 20%;
+    margin: 0 10px;
+    border: 2px solid #333;
+    border-radius: 10px;                   
+    margin: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.rooms {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+.room {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 20%;
+    margin: 0 10px;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 10px;                   
+    margin: 10px;
+    position: relative;
+    display: inline-block;
+}
+.room::before{
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #333;
+            border-radius: 12px;
+            z-index: -1;
+        }
+h2 {
+    font-size: 20px;
+}
+.room button {
+            display: block;
+            margin: 10px auto;
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+           
+        }
+.room button {
+            display: block;
+            margin: 10px auto;
+            padding: 5px 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+.button-group {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+        }
+.button-group button {
+            margin: 0 5px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ngôi nhà của tôi</h1>
+        <div class='real-time-info'>
+            <p>Thời gian thực: <span id='time'>12:00 PM</span></p>
+            <p>Nhiệt độ, độ ẩm: <span id='temperature'>25°C, 50%</span></p>
+        </div>
+    </header>
+    <div class='rooms'>
+        <div class='room'>
+            <h2>Phòng Khách</h2>
+            <p>Trạng thái đèn: <span id='living-room-light'>On</span> 
+                <div class='button-group'>
+                    <button class='control-button' id='living-room-light-on'>ON</button>                   
+                </div>
+            </p>
+            <p>Trạng thái quạt: <span id='living-room-fan'>Off</span> 
+                <div class='button-group'>
+                    <button class='control-button' id='living-room-fan-on'>ON</button>
+                    
+                </div>
+        </div>
+        <div class="room">
+            <h2>Phòng Ngủ 1</h2>
+            <p>Trạng thái đèn: <span id='bedroom-1-light'>On</span> 
+                <div class='button-group'>
+                    <button class='control-button' id='bedroom-1-light-on'>ON</button>
+                    
+                </div>
+            <p>Trạng thái quạt: <span id='bedroom-1-fan'>Off</span> 
+                <div class="button-group">
+                    <button class='control-button' id='bedroom-1-fan-on'>ON</button>
+                    
+                </div>
+            </p>
+        </div>
+        <div class='room'>
+            <h2>Phòng Ngủ 2</h2>
+            <p>Trạng thái đèn: <span id='bedroom-2-light'>On</span> 
+                <div class='button-group'>
+                    <button class='control-button' id='bedroom-2-light-on'>ON</button>
+                    
+                </div>
+            <p>Trạng thái quạt: <span id='bedroom-2-fan'>Off</span> 
+                <div class='button-group'>
+                    <button class='control-button' id='bedroom-2-fan-on'>ON</button>
+                   
+                </div>
+            </p>
+        </div>
+        <div class='room'>
+            <h2>WC</h2>
+            <p>Trạng thái đèn: <span id='wc-light'>On</span> 
+                <div class="button-group">
+                    
+                    <button class ='control-button' id='wc-light-on'>ON</button>
+
+                <div class='button-group'>
+            </p>
+        </div>
+    </div>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+        var button1 = document.getElementById('living-room-light-on');
+
+        button1.addEventListener("click", function() {
+            if (button1.innerText === "ON") {
+                button1.innerText = "OFF";
+            } else {
+                button1.innerText = "ON";
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        var button2 = document.getElementById('living-room-fan-on');
+
+        button2.addEventListener("click", function() {
+            if (button2.innerText === "ON") {
+                button2.innerText = "OFF";
+            } else {
+                button2.innerText = "ON";
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        var button3 = document.getElementById('bedroom-1-light-on');
+        button3.addEventListener("click", function() {
+            if (button3.innerText === "ON") {
+                button3.innerText = "OFF";
+            } else {
+                button3.innerText = "ON";
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        var button4 = document.getElementById('bedroom-1-fan-on');
+
+        button4.addEventListener("click", function() {
+            if (button4.innerText === "ON") {
+                button4.innerText = "OFF";
+            } else {
+                button4.innerText = "ON";
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        var button5 = document.getElementById('bedroom-2-light-on');
+
+        button5.addEventListener("click", function() {
+            if (button5.innerText === "ON") {
+                button5.innerText = "OFF";
+            } else {
+                button5.innerText = "ON";
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        var button6 = document.getElementById('bedroom-2-fan-on');
+
+        button6.addEventListener("click", function() {
+            if (button6.innerText === "ON") {
+                button6.innerText = "OFF";
+            } else {
+                button6.innerText = "ON";
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        var button7 = document.getElementById('wc-light-on');
+
+        button7.addEventListener("click", function() {
+            if (button7.innerText === "ON") {
+                button7.innerText = "OFF";
+            } else {
+                button7.innerText = "ON";
+            }
+        });
+    });
+</script>
+</html>
